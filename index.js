@@ -1,21 +1,22 @@
+import {v4 as uuidv4} from "uuid"
+import dotenv from "dotenv"
 
-import KeyGen from "./utils/keyGen.js"
+import { Provisioning } from "./utils/sandboxUserProvisioning.js";
 
-const UserID = "1f269b09-15b3-4f3d-9a2f-a09e578896dd"
-const PrimaryKey= "4e898b5ebc604156a39487cb3ad4a8a0"
+dotenv.config()
 
-const Keygenerator = new KeyGen(PrimaryKey, UserID)
+const userId  = process.env.UUID
+const subscriptionKey = process.env.SANDBOX_SECONDARY_KEY
+const requestUrl = process.env.SANDBOX_URL
+const webhookUrl = process.env.WEBHOOK_URL
 
-const user = Keygenerator.createUser()
+const newUser = new Provisioning(userId, subscriptionKey, requestUrl, webhookUrl)
 
+const createUser = newUser.apiUser()
 
-// This is just a test publis function
-export function transfer(){
-    return `${user}`
-}
+console.log(createUser)
 
-// Display outputs
-
-const send = transfer()
-
-console.log(send)
+console.log("============= Credentials ============")
+console.log(userId)
+console.log(subscriptionKey)
+console.log(webhookUrl)
