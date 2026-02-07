@@ -60,7 +60,7 @@ export class Provisioning{
                 }
             })
 
-            console.log(apiKey.data.apiKey)
+            return apiKey.data.apiKey
 
         } catch (error) {
             console.log(error.message)
@@ -73,7 +73,22 @@ export class Provisioning{
             // Assign API from the value generate in apiKey Method (function)
             const apiKey = await this.apiKey()
 
+            const header = {
+                    "Content-Type" : "application/json",
+                    "Ocp-Apim-Subscription-Key": this.subscriptionKey
+                }
 
+            const token = await axios({
+                method: 'POST',
+                url: `${this.baseUrl}/collection/token/`,
+                auth: {
+                    username: this.userId,
+                    password: apiKey
+                },
+                headers: header
+            })
+
+            console.log(token.data.access_token)
             
         } catch (error) {
             throw new Error("Error:", error)

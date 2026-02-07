@@ -24,3 +24,7 @@ console.log(createUser)
 // console.log(targetEnvironment)
 // console.log("======================================")
 console.log("============= FETCH OUTPUT =================")
+
+
+
+export default Provisioning

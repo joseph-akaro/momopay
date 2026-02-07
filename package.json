@@ -18,7 +18,7 @@
     "MOMO"
   ],
   "author": "Joseph Akaro",
-  "license": "MTN",
+  "license": "MIT",
   "type": "module",
   "bugs": {
     "url": "https://github.com/joseph-akaro/momopay/issues"
