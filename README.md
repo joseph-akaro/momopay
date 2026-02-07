@@ -7,7 +7,7 @@
 
 A modern, zero-dependency, fully-typed NodeJS SDK for the MTN Mobile Money (MoMo) API. This package simplifies all interactions with the MoMo API, including Collections, Disbursements, and Remittances, with a focus on great developer experience and robust error handling.
 
-> [!WARNING]
+> [!CAUTION]
 > Package is Under development, some features may not function as expected. do not use for production.
 
 
@@ -42,7 +42,7 @@ npm install momopay
 Here is a simple example of how to initialize the client and request a payment from a customer.
 
 ```javascript
-import { MomoClient } from 'momo-nodejs-sdk';
+import { MomoClient } from 'momopay';
 import { v4 as uuidv4 } from 'uuid'; // Recommended for generating unique IDs
 
 // 1. Configure your client
